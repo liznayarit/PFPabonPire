@@ -1,3 +1,6 @@
+@use '_commons' as c;
+
+
 *{
     margin: 0;
     padding: 0;
@@ -6,7 +9,7 @@
 
 /*Cabecera*/
 header{
-    background-color: rgb(9, 4, 4);
+    background-color:map-get(c.$colores,"fondo");
 }
 
 #logo__imagen{
@@ -14,6 +17,7 @@ header{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    
     
 }
 
@@ -46,14 +50,15 @@ header{
 
 .logo__imagen__spa{
     flex-grow: 2;
-    margin-top: 10px;
-    margin-left: 10px;
+    margin-top: c.$pixeles;
+    margin-left: c.$pixeles;
     margin-bottom: 0px;
       
 }
 
 .logo__imagen__spa{
     display: flex;
+    
 }
 
 @media only screen and (min-width: 375px){
@@ -74,11 +79,14 @@ header{
 .imagen_redes{
     width: 3rem;
     height: 3rem;
+    background-color:map-get(c.$colores,"parrafo");
 }
 
 .imagen_spa{
-    width: 15rem;
-    height: 15rem;
+    width: c.$imagen;
+    height: c.$imagen;
+    border: map-get(c.$colores,"fondo");
+    padding-top: c.$poco;
 }
 
     
@@ -91,8 +99,9 @@ header{
 
 
 nav{
-    background-color:  rgb(242, 13, 174);
-    border: solid 0px black;
+    background-color:map-get(c.$colores,"navegacion");
+    padding-top: c.$poco;
+    padding-bottom: 0.2rem;
 
 }
 
@@ -101,7 +110,7 @@ nav ul li {
     list-style: none;
     display: inline-block;  
     font-weight: bold;
-    padding: 10px;
+    padding: c.$pixeles;
 
     
 }
@@ -112,7 +121,7 @@ nav ul li:hover ul{
 
 
 nav ul li:hover ul li a{
-    background-color: rgb(242, 13, 174);
+    background-color:map-get(c.$colores,"navegacion");
     display: block; 
 }
 
@@ -126,13 +135,13 @@ nav ul ul li{
 }
 
 nav ul li a{
-    color: beige;
+    color: map-get(c.$colores,"nav");
     
 }
 
 nav ul li a:hover{
-    color: rgb(240, 9, 136); 
-        
+    color:map-get(c.$colores,"navega");
+            
 }
 
 a.enlace__nav__menu{
@@ -143,11 +152,10 @@ a.enlace__nav__menu{
     display:block;
     position: relative;
     cursor:pointer;
-	color:#ffffff;
+	color: map-get(c.$colores,"parrafo");
     font-size:17px;
-    padding:4px 2px;
-    background:linear-gradient(rgb(233, 227, 230) 0%, 
-  rgb(15, 15, 14) 20%,rgb(238, 5, 149) 100%) #e0dddd;
+    padding:10px 10px 10px 10px;
+    background:linear-gradient(rgb(233, 227, 230) 0%,rgb(15, 15, 14) 20%,rgb(238, 5, 149) 100%) #e0dddd;
      z-index: 1; 
      align-items: center;  
 }
@@ -168,38 +176,52 @@ a.enlace__nav__menu{
         width: 150px;
         display:block;
         position: relative;
-        
-          
+            
     }
-
 }
 
 
 
 
 a.enlace__nav__menu:hover {
-	background-color:#13060d;
+	background-color:map-get(c.$colores,"fondo");
 }
 
 
 h1{
-    color: rgb(242, 13, 174);
+    color:map-get(c.$colores,"navegacion");
     font-size: 50px;
     font-weight: 200;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-p{
-    font-size: x-large;
-    color: #f3f3f7;
+
+h2{
+    color:map-get(c.$colores,"navegacion");
+    font-size: 40px;
+    font-weight: 200;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
+h3{
+    font-size: 25px;
+    padding-top: 0.5rem;
+}
+
+p{
+    font-size: 20px;
+    color:map-get(c.$colores,"parrafo");
+}
+
+
 section{
-    background-color: rgb(242, 13, 174);
+    background-color:map-get(c.$colores,"navegacion");
 }
 
 
 img{
     border: solid 4px white;
-    margin-top: 1px;
+    margin-top: c.$poco;
     margin-bottom: 2rem;
     width: 100rem;
     height: 30rem;
@@ -208,8 +230,9 @@ img{
 .alinear__texto{
     scroll-snap-align: center;
     scroll-snap-stop: always;
-    background-color: black;
+    background-color:map-get(c.$colores,"alinear");
     padding-top: 5rem;
+    padding-bottom: 2rem;
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -222,14 +245,15 @@ img{
 .servicios{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 1rem;
-    background-color: #e0dddd;
-    }
+    column-gap: c.$poco;
+    background-color:map-get(c.$colores,"servicios");
+    
+}
   
     @media only screen and (min-width: 375px){
         .servicios{
             grid-template-columns: repeat(1, 1fr);
-            row-gap: 1rem;
+            row-gap: 0rem;
             align-items: center;
         }
     }
@@ -237,7 +261,7 @@ img{
     @media only screen and (min-width: 768px){
         .servicios{
             grid-template-columns: repeat(3, 1fr);
-            column-gap : 1rem;
+            column-gap : 0rem;
             align-items: center;
         }
     }
@@ -245,7 +269,7 @@ img{
     @media only screen and (min-width: 1280px){
         .servicios{
             grid-template-columns: repeat(3, 1fr);
-            column-gap : 1rem;
+            column-gap : 0rem;
             align-items: center;
         }
     }
@@ -257,12 +281,13 @@ img{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 5px 5px 5px 5px;
 }
 
 
  .iconos img{
-    width: 15rem;
-    height: 15rem;
+    width: c.$imagen;
+    height: c.$imagen;
     border-radius: 50%;
     display: flex;
     justify-content: space-evenly;
@@ -276,7 +301,7 @@ img{
     width: min(60rem, 100%); /* Utiliza el valor mas pequeño*/
     margin: 0 auto;
     padding: 2rem;
-    border-radius: 1rem;
+    border-radius: c.$poco;
 }
 
 
@@ -292,7 +317,7 @@ img{
      text-transform: uppercase;
      font-weight: 700;
      margin-bottom: 2rem;
-    color: rgb(9, 8, 8);
+     color:map-get(c.$colores,"formulario");
  }
 
  .campo{
@@ -304,7 +329,7 @@ img{
         display: grid;
         grid-template-columns: 50% 50%;  /* 2 columnas*/
         grid-template-rows: auto auto 20rem;  /* 3 filas*/
-        column-gap: 1rem;
+        column-gap: c.$poco;
         height: 20rem;
      }
 
@@ -312,7 +337,7 @@ img{
         .contenedor-campos{
             grid-template-columns: 100%;
             grid-template-rows: auto auto auto auto 20rem;
-            row-gap: 1rem;
+            row-gap: c.$poco;
             align-items: center;
         }
     }
@@ -323,18 +348,18 @@ img{
             display: grid;
             grid-template-columns: 50% 50%;  /* 2 columnas*/
             grid-template-rows: auto auto 20rem auto;  /* 3 filas*/
-            column-gap: 1rem;
+            column-gap: c.$poco;
             height: 20rem;
         }
     }
     
 
  .campo label{
-     color:rgb(18, 18, 17);
-     margin-bottom: 1rem;
-     margin-right: 15rem;
-     font-weight: bold;
-     display: block;
+    color:map-get(c.$colores,"campo");
+    margin-bottom: c.$poco;
+    margin-right: 15rem;
+    font-weight: bold;
+    display: block;
  }
 
  .campo input{
@@ -350,13 +375,13 @@ img{
  }
 
  .campo textarea{
-     height: 10rem;
+     height: c.$alto;
      margin-left: 2rem;
  }
 
 .boton{
-    margin-top: 1rem;
-    padding: 1rem;
+    margin-top: c.$poco;
+    padding: c.$poco;
     align-items: center;
 }
 
@@ -368,9 +393,9 @@ img{
 
 @media only screen and (min-width: 375px){
     .alinear-derecha input{
-        margin: 25rem;
-        margin-bottom: 1rem;
-        align-items: flex-end;
+        margin: 24rem;
+        margin-bottom: c.$poco;
+        align-items:center;
     }
         
     
@@ -378,54 +403,34 @@ img{
 
 @media only screen and (min-width: 1280px){
     .alinear-derecha input{
-        margin: 10rem;
-        margin-bottom: 1rem;
+        margin: c.$alto;
+        margin-bottom: c.$poco;
         align-items: flex-end;
     }
     
 }
 
-
-
-
-
-/*Pie de Pagina*/
-footer{
-    background-color:  rgb(10, 4, 8);
-    display:grid;
-    flex-direction: column;
-    padding: auto;
-}
-
-@media only screen and (min-width: 375px){
-    .footer{
-        display: grid;
-        grid-template-columns: 100%;  /* 1 columnas*/
-        grid-template-rows: auto 20rem;  /* 2 filas*/
-        column-gap: 1rem;
-        height: 20rem;
-        width: 100%;
-        padding-top: 50rem;
-
-    }
-}
-
-
-
-footer p{
-    font-size: large;
-    color: #f0f4f4;
-    text-align: center;
-    
-}
-
 fieldset{
-    padding-bottom: 1rem;
+    padding-bottom: c.$poco;
 }
 
 @media only screen and (min-width: 375px){
     .fieldset{
-        margin: 10rem;
+        margin: c.$alto;
 
+    }
+}
+
+.logo__imagen{
+    display: grid;
+    
+}
+
+@media only screen and (min-width: 1280px){
+    .logo__imagen{
+        padding: 100px 300px 100px 450px;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap : c.$poco;
+        align-items:center;
     }
 }
