@@ -7,7 +7,7 @@
 
 /*Cabecera*/
 header {
-  background-color: rgb(9, 4, 4);
+  background: linear-gradient(90deg, rgb(9, 3, 5) 43%, rgb(212, 12, 123) 100%);
 }
 
 #logo__imagen {
@@ -67,8 +67,8 @@ header {
 }
 
 .imagen_spa {
-  width: 15rem;
-  height: 15rem;
+  width: 40rem;
+  height: 25rem;
   border: rgb(9, 4, 4);
   padding-top: 1rem;
 }
@@ -121,18 +121,15 @@ nav ul li a:hover {
 }
 
 a.enlace__nav__menu {
-  -webkit-text-decoration: solid;
-          text-decoration: solid;
+  text-decoration: none;
   border-radius: 20px;
   border: 1px solid #ab1866;
   width: 150px;
   display: block;
-  position: relative;
-  cursor: pointer;
   color: #f0f4f4;
   font-size: 17px;
   padding: 10px 10px 10px 10px;
-  background: linear-gradient(rgb(233, 227, 230) 0%, rgb(15, 15, 14) 20%, rgb(238, 5, 149) 100%) #e0dddd;
+  background: linear-gradient(rgb(233, 227, 230) 0%, rgb(15, 15, 14) 20%, rgb(238, 5, 149) 100%);
   z-index: 1;
   align-items: center;
 }
@@ -147,8 +144,42 @@ a.enlace__nav__menu {
   a.enlace__nav__menu {
     align-items: center;
     width: 150px;
-    display: block;
     position: relative;
+  }
+}
+.enlace__nav__submenu {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  border-radius: 20px;
+  border: 1px solid #ab1866;
+  width: 150px;
+  font-size: 17px;
+  padding: 10px 10px 10px 10px;
+  background: linear-gradient(rgb(233, 227, 230) 0%, rgb(15, 15, 14) 20%, rgb(238, 5, 149) 100%);
+  z-index: 1;
+  align-items: center;
+  top: -1px;
+  margin: -10px;
+  right: 32px;
+}
+
+@media only screen and (min-width: 375px) {
+  a.enlace__nav__submenu {
+    width: 20rem;
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 780px) {
+  a.enlace__subnav__menu {
+    width: 20rem;
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  a.enlace__nav__submenu {
+    width: 150px;
+    align-items: center;
   }
 }
 a.enlace__nav__menu:hover {
@@ -245,8 +276,8 @@ img {
 }
 
 .iconos img {
-  width: 15rem;
-  height: 15rem;
+  width: 25rem;
+  height: 25rem;
   border-radius: 50%;
   display: flex;
   justify-content: space-evenly;
